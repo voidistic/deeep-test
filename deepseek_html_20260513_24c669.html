@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>عالم الرفاهة للألعاب | الرابط الرسمي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    /* Intro overlay */
+    .intro-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+    }
+
+    .intro-logo {
+      width: 200px;
+      height: 200px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
+      animation: fadeInUp 0.6s ease;
+    }
+
+    .intro-logo img {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Main card - professional */
+    .main-card {
+      max-width: 620px;
+      width: 100%;
+      background: rgba(255,255,255,0.96);
+      border-radius: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.02);
+      padding: 2rem 1.8rem;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .main-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Logo section */
+    .logo-section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo-wrapper {
+      display: inline-block;
+      padding: 6px;
+      background: linear-gradient(135deg, #E62025, #00AEEF, #FFD200, #00B050);
+      border-radius: 50%;
+      margin-bottom: 0.8rem;
+      transition: transform 0.2s;
+    }
+
+    .logo-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: white;
+      display: block;
+      border: 3px solid white;
+    }
+
+    .title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #1e293b;
+      letter-spacing: -0.3px;
+    }
+
+    .sub {
+      color: #475569;
+      font-weight: 500;
+      font-size: 0.85rem;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Links list - bubble buttons */
+    .links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin: 1.8rem 0 1rem;
+    }
+
+    .link-item {
+      width: 100%;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 1rem 1.6rem;
+      border-radius: 80px;
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Bubble animation on hover */
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.02) 100%);
+      transform: translate(-50%, -50%);
+      transition: width 0.4s, height 0.4s;
+      z-index: 0;
+    }
+
+    .link-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .link-left i {
+      font-size: 1.5rem;
+      width: 32px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .link-btn:hover .link-left i {
+      transform: scale(1.1);
+    }
+
+    /* Official platform colors for icons */
+    .link-item:nth-child(1) .link-left i { color: #E62025; }     /* متجر */
+    .link-item:nth-child(2) .link-left i { color: #1877F2; }     /* فيسبوك */
+    .link-item:nth-child(3) .link-left i { color: #E4405F; }     /* إنستغرام */
+    .link-item:nth-child(4) .link-left i { color: #000000; }     /* تيك توك */
+    .link-item:nth-child(5) .link-left i { color: #25D366; }     /* واتساب */
+
+    /* Arrow default style */
+    .link-btn .fa-arrow-left {
+      color: #94a3b8;
+      transition: transform 0.2s ease, color 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hover arrow color matches the icon color for each link */
+    .link-item:nth-child(1) .link-btn:hover .fa-arrow-left { color: #E62025; }
+    .link-item:nth-child(2) .link-btn:hover .fa-arrow-left { color: #1877F2; }
+    .link-item:nth-child(3) .link-btn:hover .fa-arrow-left { color: #E4405F; }
+    .link-item:nth-child(4) .link-btn:hover .fa-arrow-left { color: #000000; }
+    .link-item:nth-child(5) .link-btn:hover .fa-arrow-left { color: #25D366; }
+
+    .link-btn:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -10px rgba(0,0,0,0.15);
+    }
+
+    .link-btn:hover .fa-arrow-left {
+      transform: translateX(-5px);
+    }
+
+    /* Description text below each button - border right matches icon color */
+    .link-description {
+      margin-top: 0.5rem;
+      margin-right: 1.2rem;
+      font-size: 0.75rem;
+      color: #4a5b6e;
+      font-weight: 500;
+      padding-right: 0.5rem;
+      border-right: 3px solid;
+      transition: all 0.2s;
+    }
+
+    .link-item:nth-child(1) .link-description { border-right-color: #E62025; }
+    .link-item:nth-child(2) .link-description { border-right-color: #1877F2; }
+    .link-item:nth-child(3) .link-description { border-right-color: #E4405F; }
+    .link-item:nth-child(4) .link-description { border-right-color: #000000; }
+    .link-item:nth-child(5) .link-description { border-right-color: #25D366; }
+
+    /* Footer */
+    .footer-store {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #eef2ff;
+      font-size: 0.7rem;
+      color: #64748b;
+    }
+
+    /* Responsive */
+    @media (max-width: 550px) {
+      .main-card { padding: 1.5rem; }
+      .logo-img { width: 80px; height: 80px; }
+      .title { font-size: 1.5rem; }
+      .link-btn { padding: 0.8rem 1.2rem; }
+      .link-left i { font-size: 1.3rem; width: 28px; }
+      .link-description { font-size: 0.7rem; margin-right: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Intro Overlay -->
+<div id="introOverlay" class="intro-overlay">
+  <div class="intro-logo">
+    <img id="introLogoImg" src="logo.png" alt="شعار عالم الرفاهة" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2745%27 fill=%27%23E62025%27/%3E%3Ctext x=%2750%27 y=%2767%27 font-size=%2740%27 text-anchor=%27middle%27 fill=%27white%27%3E🎮%3C/text%3E%3C/svg%3E'">
+  </div>
+</div>
+
+<!-- Main Card -->
+<div class="main-card" id="mainCard">
+  <div class="logo-section">
+    <div class="logo-wrapper" id="targetLogoWrapper">
+      <img class="logo-img" id="mainLogoImg" src="logo.png" alt="شعار عالم الرفاهة" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2745%27 fill=%27%23E62025%27/%3E%3Ctext x=%2750%27 y=%2767%27 font-size=%2740%27 text-anchor=%27middle%27 fill=%27white%27%3E🎮%3C/text%3E%3C/svg%3E'">
+    </div>
+    <h1 class="title">عالم الرفاهة للألعاب 🎮</h1>
+    <div class="sub"><i class="fas fa-crown"></i> وجهتك الأولى للمتعة والألعاب <i class="fas fa-gamepad"></i></div>
+  </div>
+
+  <div class="links-list">
+    <!-- 1. المتجر الإلكتروني -->
+    <div class="link-item">
+      <a href="https://www.arafaha.store" target="_blank" rel="noopener" class="link-btn">
+        <div class="link-left"><i class="fas fa-store"></i><span>المتجر الإلكتروني</span></div>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      <div class="link-description">استكشف أحدث العروض والخصومات 🛍️🎁</div>
+    </div>
+
+    <!-- 2. فيسبوك -->
+    <div class="link-item">
+      <a href="https://www.facebook.com/profile.php?id=61559667967845" target="_blank" rel="noopener" class="link-btn">
+        <div class="link-left"><i class="fab fa-facebook-f"></i><span>فيسبوك</span></div>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      <div class="link-description">شاركنا برأيك على صفحتنا 🗣️💙</div>
+    </div>
+
+    <!-- 3. إنستغرام -->
+    <div class="link-item">
+      <a href="https://www.instagram.com/arafaha_world" target="_blank" rel="noopener" class="link-btn">
+        <div class="link-left"><i class="fab fa-instagram"></i><span>إنستغرام</span></div>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      <div class="link-description">استلهم الجمال من منشوراتنا 📸✨</div>
+    </div>
+
+    <!-- 4. تيك توك -->
+    <div class="link-item">
+      <a href="https://www.tiktok.com/@arafahaworld" target="_blank" rel="noopener" class="link-btn">
+        <div class="link-left"><i class="fab fa-tiktok"></i><span>تيك توك</span></div>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      <div class="link-description">لا تفوّت ترنداتنا الجديدة 🔥🎬</div>
+    </div>
+
+    <!-- 5. واتساب -->
+    <div class="link-item">
+      <a href="https://wa.me/218921100108" target="_blank" rel="noopener" class="link-btn">
+        <div class="link-left"><i class="fab fa-whatsapp"></i><span>واتساب</span></div>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      <div class="link-description">استفسر عن خدماتنا فوراً 💬✅</div>
+    </div>
+  </div>
+
+  <div class="footer-store">
+    <span>© 2025 عالم الرفاهة للألعاب – جميع الحقوق محفوظة</span>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const introOverlay = document.getElementById('introOverlay');
+    const mainCard = document.getElementById('mainCard');
+    const targetWrapper = document.getElementById('targetLogoWrapper');
+    const introLogoImg = document.getElementById('introLogoImg');
+    const mainLogoImg = document.getElementById('mainLogoImg');
+    
+    if (mainLogoImg.src && introLogoImg.src !== mainLogoImg.src) {
+      introLogoImg.src = mainLogoImg.src;
+    }
+    
+    const introLogoElem = document.querySelector('.intro-logo');
+    const cloneLogo = introLogoElem.cloneNode(true);
+    cloneLogo.style.position = 'fixed';
+    cloneLogo.style.zIndex = '2000';
+    cloneLogo.style.top = '50%';
+    cloneLogo.style.left = '50%';
+    cloneLogo.style.transform = 'translate(-50%, -50%) scale(1)';
+    cloneLogo.style.transition = 'all 0.65s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+    cloneLogo.style.width = '200px';
+    cloneLogo.style.height = '200px';
+    cloneLogo.style.margin = '0';
+    
+    setTimeout(() => {
+      const targetRect = targetWrapper.getBoundingClientRect();
+      const finalWidth = targetRect.width;
+      const finalHeight = targetRect.height;
+      const finalTop = targetRect.top;
+      const finalLeft = targetRect.left;
+      
+      document.body.appendChild(cloneLogo);
+      introOverlay.style.opacity = '0';
+      introOverlay.style.pointerEvents = 'none';
+      
+      cloneLogo.offsetHeight;
+      cloneLogo.style.top = finalTop + 'px';
+      cloneLogo.style.left = finalLeft + 'px';
+      cloneLogo.style.width = finalWidth + 'px';
+      cloneLogo.style.height = finalHeight + 'px';
+      cloneLogo.style.transform = 'translate(0, 0) scale(1)';
+      
+      setTimeout(() => {
+        cloneLogo.remove();
+        mainCard.classList.add('visible');
+        introOverlay.remove();
+      }, 680);
+    }, 900);
+  })();
+</script>
+</body>
+</html>
